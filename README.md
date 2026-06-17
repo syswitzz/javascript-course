@@ -33,8 +33,8 @@ HTML
 VARIABLE
 - let: allows changing of values later
 - const: doesnt allow changing of value
-- var: same as const; but not used in modern JS
-- only $, _ allowed
+- var: same as let; but not used in modern JS
+- only $, _ special chars allowed
 - not start with number
 - no reserved keywords
 - cannot use '-' symbol. eg, cart-quantity
@@ -42,3 +42,21 @@ VARIABLE
 quantity = quantity + 2
 - quantity += 2; 
 - quantity++;
+
+OPERATORS
+- == is replaced by ===
+- != is replaced by !==
+- == or != tries to convert the values to same datatype 
+- eg, 5 == '5.00' returns true
+- while 5 === '5.00' returns false
+- lower priority than math
+
+Math.random()
+- generates a number such that (0 <= number < 1)
+
+SCOPES
+- a scope limits where a variable exists
+- if statement creates a scope
+- any variable inside {} will only exist inside that {}
+- scopes helps avoid naming conflicts
+- var doesnt follow the rules of scope
