@@ -60,3 +60,26 @@ SCOPES
 - any variable inside {} will only exist inside that {}
 - scopes helps avoid naming conflicts
 - var doesnt follow the rules of scope
+
+BUILT IN OBJECTS
+- console
+- Math
+- JSON
+- localStorage
+
+JSON (javascript object notation)
+- used to convert JS Objects to JSON and vice versa
+- similar to JS Objects but has less features (single quotes, functions not allowed)
+- JSON.stringify(Object) = JSON 
+- JSON.parse(JSON) = Object
+
+localStorage 
+- save values permanently, doesnt get deleted when page is refreshed
+- only supports string
+- localStorage.setItem("msg", "hello world!")
+- localStorage.getItem("msg")
+- localStorage.removeItem("msg")
+
+null vs undefined
+- null = intentionally want something to empty, it is a value
+- undefined is not a value. we cant pass it as function parameter
