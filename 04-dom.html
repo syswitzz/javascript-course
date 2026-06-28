@@ -1,0 +1,46 @@
+<html>
+  <head>
+    <title>DOM</title>
+  </head>
+  <body>
+
+    <button>Click here</button>
+
+    <button class="second-button">Second Button</button>
+    
+
+    <script>
+      // the document object represents/ models the webpage
+      // it combines HTML and JS and gives JS control of webpage
+
+      /*
+      document.body.innerHTML = "hello";
+      document.button.innerText;
+      document.title = "New title";
+      typeof document.body is OBJECT
+      */
+
+      console.log(document.querySelector("button"));
+      console.log(document.querySelector(".second-button"))
+
+      document.querySelector("button")
+        .innerHTML = "changed 1st button";  
+      
+      /*
+      document - represents the webpage
+      window - represents the browser
+      // everything inside the browser is inside the window object
+
+      window.document = document
+      window.console.log() = console.log()
+      window.alert() = alert()
+      */
+
+      // document.querySelector("button")
+      //  .classList.add("new-css-class")
+      //  .classList.remove("old-css-class")
+    </script>
+
+  </body>
+  
+</html>

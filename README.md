@@ -83,3 +83,14 @@ localStorage
 null vs undefined
 - null = intentionally want something to empty, it is a value
 - undefined is not a value. we cant pass it as function parameter
+
+Event Listeners 
+- clicks & keydowns = events
+- onclick & onkeydown = event listener
+- onkeydown: acts when key pressed
+- onscroll: scrolling
+- onmouseenter: hovering over
+- onmouseleave: stop hovering over
+- every event listener gives us an "event" object which can be used to find which key was pressed etc
+
+
