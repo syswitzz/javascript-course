@@ -1,6 +1,6 @@
 // ARRAY
 // We can put any type of value in an array. Array is an object.
-let fruits = ["apple", "banana", "orange", "grape", "kiwi"];
+const fruits = ["apple", "banana", "orange", "grape", "kiwi"];
 console.log(Array.isArray(fruits)); // Output: true
 
 // Accessing elements
@@ -20,6 +20,14 @@ console.log(fruits); // Output: ["apple", "mango", "orange", "grape", "kiwi"]
 
 fruits.splice(2, 1); // Removes 1 element at index 2
 console.log(fruits); // Output: ["apple", "mango", "grape", "kiwi"]
+
+// slice() method to copy instead of referencing
+const fruit2 = fruits; // both point to the same data in memory. meaning modifying one will modify other too
+const fruit2 = fruits.slice()  
+
+// Destructuring
+let [firstFruit, secondFruit] = fruits; 
+console.log(firstFruit); // Output: apple
 
 
 // While loop
@@ -49,15 +57,11 @@ for (let fruit of fruits) {
 // For...in loop
 for (let index in fruits) {
     console.log(fruits[index]);
-} 
-
-
-// Looping through the array
-for (let i = 0; i < fruits.length; i++) {
-    console.log(fruits[i]);
 }
 
 // Using forEach method
 fruits.forEach(function(fruit) {
     console.log(fruit);
 });
+
+// continue and break works the same
