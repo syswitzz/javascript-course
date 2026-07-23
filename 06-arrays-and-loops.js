@@ -31,6 +31,7 @@ console.log(firstFruit); // Output: apple
 
 
 // While loop
+// continue and break works the same
 let count = 0;
 while (count < 5) {
     console.log(count);
@@ -60,8 +61,7 @@ for (let index in fruits) {
 }
 
 // Using forEach method
-fruits.forEach(function(fruit) {
+// forEach doesnt allow continue or break instead we use the return statement for continue. it skips the current function and jumps to the next
+fruits.forEach(function(fruit, index) {
     console.log(fruit);
 });
-
-// continue and break works the same
