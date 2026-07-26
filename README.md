@@ -94,3 +94,8 @@ Event Listeners
 - every event listener gives us an "event" object which can be used to find which key was pressed etc
 
 
+HTML Data Attribute
+- has to start with "data-" followed by any name
+- eg, data-product-name = "Basketball"
+- JS (.dataset) property gives access to all the data attributes attached to the html element
+- to access use "button.dataset.productName" (the name gets converted to camel case)
