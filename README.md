@@ -107,3 +107,8 @@ JS Modules (allows to get a variable out of a file without preventing naming con
 - <script src="scripts/amazon.js" type="module"></script>
 - export const cart = [];
 - import {cart as myCart} from "..";
+- import * as cartModule from "..";
+
+
+DeDuplicating/ Normalising the data
+- it is the practice where we use productId to get information about the product from pre existing data while noting that productId is only used to track the quantity of the item
