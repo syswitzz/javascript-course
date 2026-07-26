@@ -1,5 +1,6 @@
-let productsHTML = ``;
+import {cart} from "../data/cart.js";
 
+let productsHTML = ``;
 
 products.forEach((product) => {
     // this is called a Accumulator pattern as we are accumulating the result

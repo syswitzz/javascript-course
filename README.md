@@ -99,3 +99,11 @@ HTML Data Attribute
 - eg, data-product-name = "Basketball"
 - JS (.dataset) property gives access to all the data attributes attached to the html element
 - to access use "button.dataset.productName" (the name gets converted to camel case)
+
+
+JS Modules (allows to get a variable out of a file without preventing naming conflicts)
+- we need to use liveserver to use this feature
+- order of script tag really matters and its hard to manage on big projects thats why we use modules
+- <script src="scripts/amazon.js" type="module"></script>
+- export const cart = [];
+- import {cart as myCart} from "..";
