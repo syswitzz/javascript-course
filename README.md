@@ -73,6 +73,7 @@ JSON (javascript object notation)
 - JSON.stringify(Object) = JSON 
 - JSON.parse(JSON) = Object
 
+
 localStorage 
 - save values permanently, doesnt get deleted when page is refreshed
 - only supports string
@@ -80,9 +81,11 @@ localStorage
 - localStorage.getItem("msg")
 - localStorage.removeItem("msg")
 
+
 null vs undefined
 - null = intentionally want something to empty, it is a value
 - undefined is not a value. we cant pass it as function parameter
+
 
 Event Listeners 
 - clicks & keydowns = events
@@ -112,3 +115,13 @@ JS Modules (allows to get a variable out of a file without preventing naming con
 
 DeDuplicating/ Normalising the data
 - it is the practice where we use productId to get information about the product from pre existing data while noting that productId is only used to track the quantity of the item
+
+../ - previous folder
+./ - current folder
+
+
+HTML Radio selectors
+- if the radio selectors have the same name attribute we can only select one of them
+
+DOM (.remove) method
+- document.querySelector(.class).remove()
