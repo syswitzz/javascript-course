@@ -125,3 +125,37 @@ HTML Radio selectors
 
 DOM (.remove) method
 - document.querySelector(.class).remove()
+
+
+External Libraries 
+- code written by other developers that we can use
+- <script src="https://someurl"></script>
+- generally we load external libraries first
+
+
+DayJS Library 
+- helps us work with dates
+- <script src="https://unpkg.com/dayjs@1.11.21/dayjs.min.js"></script>
+- today = dayjs();
+- overmorrow = today.add(2, 'days');
+- format = overmorrow.format('dddd, MMMM D')
+
+Format Table
+- dd: Su
+- ddd: Sun
+- dddd: Sunday
+- H: 0-23
+- M: 1-12
+- MM: 01-12
+- MMM: Jan-Dec
+- MMMM: January-December
+- D: 1-31
+
+
+- to use import statements in a js file. we have to declare that its a module in the corresponding html file
+- even after that, we still must use `export` statement in whatever we are importing
+- external libraries can be imported using the `script` tag and `src` attribute 
+- but to avoid naming conflicts we import the esm version directly into the JS file without using any script tags
+- `import dayjs from "url";` [url = ESM version of the module eg, (https://unpkg.com/dayjs@1.11.21/esm/index.js)]
+- we used dayjs instead of {dayjs} because we are using default import here. it imports the default function that was declared using the syntax `export default function1;` in the external library file
+- some libraries use named exports and some use default exports
