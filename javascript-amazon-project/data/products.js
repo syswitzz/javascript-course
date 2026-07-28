@@ -1,3 +1,16 @@
+export function getProduct(productId) {
+  let product;
+
+  products.forEach(item => {
+      if (productId === item.id) {
+          product = item;
+      }
+  })
+
+  return product
+}
+
+
 export const products = [
   {
     id: "e43638ce-6aa0-4b85-b27f-e1d07eb678c6",
