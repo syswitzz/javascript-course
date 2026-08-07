@@ -1,16 +1,8 @@
 import {cart, removeFromCart, updateDeliveryOption} from "../../data/cart.js";
 import {products, getProduct} from "../../data/products.js";
 import {deliveryOptions, getDeliveryOption} from "../../data/deliveryOptions.js";
+import { renderPaymentSummary } from "./paymentSummary.js";
 import dayjs from "https://unpkg.com/dayjs@1.11.21/esm/index.js";
-
-
-// this technique of updating the data and regenerating all the html by calling the function whenever a refresh is needed is called MVC (model-view-container) design pattern
-
-// In MVC, we split our code in three parts
-
-// M - model (all the code that saves and manages the data)
-// V - view (takes the data and displays it on the page)
-// C - controller (runs the code when we interact with the page)
 
 
 export function renderCartSummary(){
@@ -114,6 +106,8 @@ export function renderCartSummary(){
             removeFromCart(productId)
             
             document.querySelector(`.js-cart-item-container-${productId}`).remove()
+
+            renderPaymentSummary();
         })
     })
 
@@ -122,6 +116,7 @@ export function renderCartSummary(){
             const {productId, deliveryOptionId} = element.dataset;
             updateDeliveryOption(productId, deliveryOptionId);
             renderCartSummary();
+            renderPaymentSummary();
         })
     })
 }

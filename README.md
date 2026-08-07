@@ -159,3 +159,120 @@ Format Table
 - `import dayjs from "url";` [url = ESM version of the module eg, (https://unpkg.com/dayjs@1.11.21/esm/index.js)]
 - we used dayjs instead of {dayjs} because we are using default import here. it imports the default function that was declared using the syntax `export default function1;` in the external library file
 - some libraries use named exports and some use default exports
+
+
+
+// this technique of updating the data and regenerating all the html by calling the function whenever a refresh is needed is called MVC (model-view-container) design pattern
+
+// In MVC, we split our code in three parts
+
+// M - model (all the code that saves and manages the data)
+// V - view (takes the data and displays it on the page)
+// C - controller (runs the code when we interact with the page)
+
+
+PROCEDURAL PROGRAMMING
+- procedure = step by step instruction
+- functions
+
+
+OBJECT ORIENTED PROGRAMMING
+- we use objects
+- it tries to represent real world
+- class - object generator, helps us generate objects
+- class is just like object but we use = instead of : and ; instead of ,
+
+function Cart(parameter) {
+    const object = {
+        method: function(){this.property, parameter},
+        property: value,
+    };
+    return object;
+}
+
+const cartObject = Cart("xyz");
+
+class Cart {
+    property = value;
+    parameterName;  
+    #privateParameter
+
+    constructor(parameter, parameter2){
+        this.parameterName = parameter;
+        this.#privateParameter = parameter2;
+        this.#privateMethod();
+    }
+
+    #privateMethod = function(){}; 
+    method = function(){this.property};    
+}
+
+const cartObject = new Cart("xyz", "private value"); 
+
+- here cartObject is an instance of the class Cart
+- console.log(cartObject instanceof Cart) // true
+- we use `#` to create or access a private property meaning that it can only be accessed inside the class
+- public property can be accessed outside of the class
+- we do not use arrow functions in classes
+
+
+1. Constructor 
+- a constructor lets us group initial setup code inside the class
+
+constructor(parameter){
+    this.parameterName = parameter;
+}
+
+2. Inheritance, super()
+- we use inheritance when we have one class which is more specific type of another class
+
+class Clothing extends Product {
+    newMethods () {super.oldMethod()};
+    newProperty;
+
+    constructor(productDetails) {
+        super();    // call the constructor of the parent class. if not present, by default, parents constructor is run
+        this.newProperty = productDetails.sizeChartLink
+    }
+} 
+
+3. Polymorphism (method overriding)
+- if we have to update html based on whether its Product class or more specific Clothing class
+- i. we can use (isinstance, if, ternary operator) statements
+- ii. we can create a method inside the Product and Clothing class. the Product class method will return '' but Clothing class method will return some html
+- so we can just use product.getAdditionalHTML() in the main html 
+- basically both class will have same method but they function differently for each class. 
+
+
+[].map() Function
+- it basically loops through an array and applies a given function to all its element
+
+- [1,2,3].map((num) => {
+    return num + 2;
+})
+
+
+Built-In Classes (Date)
+- let date = new Date()     // gives current date and time
+- date.toLocaleTimeString   // 12:21:23 PM
+- dayjs uses Date class behind the scenes giving lot more features
+
+
+'this' STATEMENT
+- when used inside an object, it gives access to the object. it lets an object access its own properties
+- we can use 'this' inside a function. in a regular function 'this' is undefined
+
+function printHello() {
+    console.log(this);
+}
+
+printHello();    // undefined
+printHello.call("Hello");    // Hello
+printHello.call("Hello", param1, param2); 
+
+- we dont use arrow function in objects/classes because "this" statement points to undefined in that case. arrow functions do not change the value of 'this'
+- the reason is when we use forEach loop and provide a function the 'this' statement starts pointing to the function instead of the object the loop is in
+
+1. inside a method, this points to outer object
+2. inside a function, this is undefined
+3. array function do not change the value of this

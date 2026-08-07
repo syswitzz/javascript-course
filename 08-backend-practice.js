@@ -1,0 +1,1 @@
+// XMLHttpRequest - to send an http request to a server and receive a response. It is commonly used in web development to make asynchronous requests to retrieve data without refreshing the entire page.
