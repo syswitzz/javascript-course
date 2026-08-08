@@ -276,3 +276,10 @@ printHello.call("Hello", param1, param2);
 1. inside a method, this points to outer object
 2. inside a function, this is undefined
 3. array function do not change the value of this
+
+
+CALLBACK
+- When we provide a function as an argument. Callback means a function to run in the future.
+- setTimeout(func, 1000). func is an example of callback here
+
+
