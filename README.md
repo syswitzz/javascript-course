@@ -283,3 +283,28 @@ CALLBACK
 - setTimeout(func, 1000). func is an example of callback here
 
 
+
+fetch()
+- const response = fetch("https://supersimplebackend.dev", {
+    method: "POST",
+    headers: {
+        "Content-Type": "application/json"
+    },
+    body: JSON.stringify({
+        cart: cart
+    })
+})
+
+- const order = await response.json();
+
+
+window object
+- window.location.href = "orders.html";
+- it changes our url and shifts us to another page on the website
+
+
+
+URL()
+- we use URL() class to get a parameter out of an object
+- url = new URL(window.location.href) gives the location of the current window
+- url.searchParams.get("OrderId") lets us get the OrderId parameter value
