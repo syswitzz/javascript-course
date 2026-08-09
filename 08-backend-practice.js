@@ -24,6 +24,7 @@ xhr.response    // undefined
 
 
 // PROMISE - runs a code immediately
+// resolve() - tells the promise that the code has finished running and we can move to the next step
 // promise makes its own thread and runs the code in that thread. It does not block the main thread.
 // promise splits our code into seperate steps and lets us wait for a step to finish before moving to the next step
 new Promise((resolve) => {
@@ -88,3 +89,83 @@ function loadData() {
 loadData().then((data) => {
     console.log("Data loaded:", data);
 });     // we can keep attaching .then, and use return to pass the data to next step and also makes the current promise resolve before moving to the next step.
+
+
+
+// ASYNC - async makes a function return a promise
+// AWAIT - await makes a function wait for a promise to resolve before moving to the next step. It can only be used inside an async function. instead of using `.then()` we can use `await` to wait for the promise to resolve and get the value of the promise. We can only use await on a promise
+async function loadDataAsync() {
+    console.log("start loading data");
+    return "Done"
+}
+
+loadDataAsync().then((data) => {
+    console.log(data);  // Done
+});
+
+function loadDataAsync() {  // same as above but using promise
+    return new Promise((resolve) => {
+        console.log("start loading data");
+        resolve("Done");
+    })
+}
+
+loadDataAsync().then((data) => {
+    console.log(data);  // Done
+});
+
+
+// instead of
+loadData().then((data) => {     // resolve data is passed as an argument in next step
+    console.log(data);
+});
+
+// we can use async await
+async function loadDataAsync() {
+    const data = await loadData();  // resolve data can be stored in a variable.
+    console.log(data);
+}
+
+loadDataAsync();
+
+
+
+// ERROR HANDLING
+
+// xhr - add an event listener for error
+xhr.addEventListener('error', (error) => {       // we need to make a seperate event listener for error
+    console.error("Error fetching data", error);
+})
+
+// promise - add a catch() method to the promise chain
+// reject() - tells the promise that the code has failed and we can move to the next step. helps create error in future. used as an alternative to throw()
+const checkServerStatus = (isOnline) => {
+  return new Promise((resolve, reject) => {
+    if (isOnline) {
+      resolve("Server is healthy!");
+    } else {
+      reject("Error: Server is offline!"); // Sends error to .catch()
+    }
+  });
+};
+
+checkServerStatus(false)
+  .then((data) => {
+    console.log(data); // Runs only if resolve() is called
+  })
+  .catch((error) => {
+    console.error(error); // Catches the reject() output or runtime crashes
+  });
+
+
+// async await - use try catch block to handle errors
+// we can use throw "error" to manually throw an error
+async function checkServerStatusAsync(isOnline) {
+    try {
+        const status = await checkServerStatus(isOnline);
+        console.log(status);
+    } catch (error) {
+        console.error(error);
+    }
+} 
+checkServerStatusAsync(false);
