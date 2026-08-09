@@ -63,3 +63,28 @@ Promise.all([
 ]).then((values) => {   // values = ["promise 1 resolved", "promise 2 resolved"]
     console.log("all promises resolved", values);
 });
+
+
+
+
+// FETCH() - fetch is a better way to make http requests. It returns a promise that resolves to the response of the request.
+// xmlhttprequest uses callbacks while fetch uses promises
+
+function loadData() {
+    const data = fetch("https://supersimplebackend.dev")
+        .then((response) => {
+            return response.json();   // response.json() returns a promise. We must wait to go the next step. we can use another then() to wait for the promise to resolve
+        })
+        .then((data) => {
+            console.log(data);
+        })
+        .catch((error) => {
+            console.error("Error fetching data:", error);
+        });
+
+    return data;
+}
+
+loadData().then((data) => {
+    console.log("Data loaded:", data);
+});     // we can keep attaching .then, and use return to pass the data to next step and also makes the current promise resolve before moving to the next step.
